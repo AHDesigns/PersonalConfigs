@@ -64,6 +64,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
 Plug 'shirk/vim-gas'
 Plug 'othree/html5.vim'
+Plug 'neovimhaskell/haskell-vim'
 
 "------------------------------------------
 "--- Utilities
@@ -97,6 +98,8 @@ Plug 'ncm2/ncm2' | Plug 'roxma/nvim-yarp' | Plug 'roxma/vim-hug-neovim-rpc' | Pl
 "---------------------------------------------------------------"
 
 call plug#end()
+
+" vimGolf 2e951b83e7ecc7c535fa3ac5153ceff0
 
 "---------------------------------------------------------------"
 "--- Indentation
@@ -288,6 +291,14 @@ hi Comment cterm=italic gui=italic
 :exe 'hi jsonBoolean  guifg='.green
 :exe 'hi jsonNumber  guifg='.blue
 
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+
 "---------------------------------------------------------------"
 "--- Airline
 "---------------------------------------------------------------"
@@ -339,7 +350,7 @@ let g:fzf_colors = {
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_delay = 0
 let g:ale_lint_on_insert_leave = 1
-let g:ale_linters = { 'javascript': ['eslint'] }
+let g:ale_linters = { 'javascript': ['eslint'], 'graphql': ['graphql-schema-linter'] }
 let g:ale_fixers = { 
             \'javascript': ['eslint', 'prettier'],
             \ 'css': ['prettier'],
