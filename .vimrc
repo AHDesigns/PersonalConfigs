@@ -54,7 +54,7 @@ Plug 'chrisbra/Colorizer'
 "-----------------------------------------
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'sheerun/vim-polyglot'
-Plug 'peitalin/vim-jsx-typescript' "| Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim' | Plug 'peitalin/vim-jsx-typescript' "| Plug 'Quramy/tsuquyomi'
 Plug 'moll/vim-node'
 " Plug 'styled-components/vim-styled-components'
 Plug 'chrisbra/csv.vim'
@@ -102,6 +102,12 @@ call plug#end()
 filetype plugin indent on " Needs to go before autocmds
 syntax enable " Needs to go before autocmds
 
+"---------------------------------------------------------------"
+"--- color
+"---------------------------------------------------------------"
+if (has("termguicolors"))
+    set termguicolors
+endif
 
 "---------------------------------------------------------------"
 "--- autocmd
@@ -118,15 +124,13 @@ if !exists("autocommands_loaded")
 
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
-    autocmd BufNewFile,BufRead *.{ts,tsx,js,jsx} 
-                \ set filetype=javascript.jsx |
-                \ nnoremap <silent> gD :call LanguageClient#textDocument_definition()<CR>
+    autocmd BufNewFile,BufRead *.{ts,tsx,js,jsx} nnoremap <silent> gD :call LanguageClient#textDocument_definition()<CR>
+    autocmd BufNewFile,BufRead *.{js,jsx} set filetype=javascript.jsx
 
     autocmd FileType * setlocal tabstop=4 shiftwidth=4
     autocmd User AsyncRunStop let g:asyncrun_status="✓"
     autocmd User AsyncRunStart let g:asyncrun_status="❁ "
 endif
-
 
 "---------------------------------------------------------------"
 "--- Editor
@@ -281,9 +285,10 @@ nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " something to do with vim in a terminal
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-let g:onedark_termcolors=256
 " color tenderAdam
 color snazzy
+" let g:onedark_termcolors=256
+" let g:onedark_terminal_italics=1
 " colorscheme onedark
 
 if has('gui_running')
@@ -332,6 +337,7 @@ function! LightlineFilename()
     return expand('%')
 endfunction
 
+              "\ 'colorscheme': 'onedark',
   let g:lightline = {
               \ 'colorscheme': 'snazzy',
               \ 'active': {
@@ -394,6 +400,7 @@ let g:ale_linters = {
             \}
 let g:ale_fixers = { 
             \ 'javascript': ['eslint'],
+            \ 'typescript': ['tslint'],
             \ 'json': ['prettier'],
             \ 'graphql': ['prettier'],
             \ 'yml': ['prettier'],
