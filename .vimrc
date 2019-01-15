@@ -18,7 +18,8 @@ Plug 'kshenoy/vim-signature'
 Plug 'takac/vim-hardtime'
 Plug 'ddrscott/vim-window'
 Plug 'danro/rename.vim'
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
+Plug 'gabrielelana/vim-markdown'
 Plug 'kannokanno/previm'
 Plug 'godlygeek/tabular'
 Plug 'justinmk/vim-sneak'
@@ -186,22 +187,22 @@ let g:indentLine_fileTypeExclude = ['help', 'man', 'startify', 'NERDTree']
 
 let g:previm_open_cmd = 'open -a Safari'
 "
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_conceal = 0
+" let g:vim_markdown_folding_disabled = 1
+" let g:vim_markdown_conceal = 0
 
 " csharp=cs means csharp highlights as cs
-let g:vim_markdown_fenced_languages = [
-            \ 'coffee',
-            \ 'css',
-            \ 'erb=eruby',
-            \ 'javascript',
-            \ 'typescript',
-            \ 'js=javascript',
-            \ 'json=javascript',
-            \ 'ruby',
-            \ 'sass',
-            \ 'xml'
-            \ ]
+" let g:vim_markdown_fenced_languages = [
+"             \ 'coffee',
+"             \ 'css',
+"             \ 'erb=eruby',
+"             \ 'javascript',
+"             \ 'typescript',
+"             \ 'js=javascript',
+"             \ 'json=javascript',
+"             \ 'ruby',
+"             \ 'sass',
+"             \ 'xml'
+"             \ ]
 
 let g:goyo_width = 120 " default 80
 let g:goyo_height = 95 "(default: 85%)

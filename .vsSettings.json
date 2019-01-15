@@ -56,6 +56,7 @@
   "workbench.iconTheme": "vscode-icons",
   "window.zoomLevel": 0,
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "workbench.panel.defaultLocation": "right",
   //////// VIM
   // "vim.easymotion": true,
   // "vim.sneak": true,

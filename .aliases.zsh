@@ -63,7 +63,7 @@ alias gnah="git reset --hard; git clean -df"
 alias gh="open \`git remote -v | grep git@github.com | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/:/\//' -e 's/git@/http:\/\//'\`"
 alias gr="git rebase -i HEAD~$1"
 alias gclean="git clean -dfX"
-alias gwip="git add . && git commit -nm 'wip'"
+alias gwip="git add . && git commit -nm 'wip' && git push"
 
 #---------------------------------------------#
 # TMUXINATOR
